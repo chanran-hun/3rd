@@ -1,6 +1,7 @@
 package com.example.demo;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -33,6 +34,11 @@ public class HelloController {
 
     @PostMapping("/user")
     public String user(@RequestBody User user) {
-        return userService.introduce(user);
+        return userService.saveUser(user);
+    }
+
+    @GetMapping("/users")
+    public List<User> users() {
+        return userService.getUsers();
     }
 }
