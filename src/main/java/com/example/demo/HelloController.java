@@ -1,10 +1,16 @@
 package com.example.demo;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 public class HelloController {
+    private final UserService userService;
+
+    public HelloController(UserService userService) {
+        this.userService = userService;
+    }
+
     @GetMapping("/hello")
     public String hello() {
         return "Hello, 학습자님!";
@@ -18,5 +24,15 @@ public class HelloController {
     @GetMapping("/name")
     public String name(@RequestParam String name) {
         return "안녕하세요 " + name;
+    }
+
+    @GetMapping("/sum")
+    public int sum(@RequestParam int a, @RequestParam int b) {
+        return a + b;
+    }
+
+    @PostMapping("/user")
+    public String user(@RequestBody User user) {
+        return userService.introduce(user);
     }
 }
