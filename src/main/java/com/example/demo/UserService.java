@@ -19,6 +19,9 @@ public class UserService {
     }
 
     public User getUser(int index) {
+        if(index < 0 || index >= users.size()){
+            throw new IllegalArgumentException("존재하지 않는 사용자입니다.");
+        }
         return users.get(index);
     }
 }
