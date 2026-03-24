@@ -37,6 +37,11 @@ public class HelloController {
         return userService.saveUser(user);
     }
 
+    @GetMapping("/user")
+    public User getUser(@RequestParam int index) {
+        return userService.getUser(index);
+    }
+
     @GetMapping("/users")
     public List<User> users() {
         return userService.getUsers();

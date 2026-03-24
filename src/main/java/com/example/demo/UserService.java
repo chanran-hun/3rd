@@ -18,7 +18,7 @@ public class UserService {
         return users;
     }
 
-    public String introduce(User user) {
-        return "이름: " + user.getName() + ", 나이: " + user.getAge();
+    public User getUser(int index) {
+        return users.get(index);
     }
 }
