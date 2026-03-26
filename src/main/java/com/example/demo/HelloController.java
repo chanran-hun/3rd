@@ -6,6 +6,7 @@ import java.util.Map;
 
 @RestController
 public class HelloController {
+
     private final UserService userService;
 
     public HelloController(UserService userService) {
@@ -38,8 +39,8 @@ public class HelloController {
     }
 
     @GetMapping("/user")
-    public User getUser(@RequestParam int index) {
-        return userService.getUser(index);
+    public User getUser(@RequestParam Long id) {
+        return userService.getUser(id);
     }
 
     @GetMapping("/users")
