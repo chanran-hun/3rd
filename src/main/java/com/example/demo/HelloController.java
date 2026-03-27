@@ -48,6 +48,10 @@ public class HelloController {
         return userService.getUser(id);
     }
 
+    @DeleteMapping("/user/{id}")
+    public String deleteUser(@PathVariable Long id){
+        return userService.deleteUser(id);
+    }
     @GetMapping("/users")
     public List<User> users() {
         return userService.getUsers();
