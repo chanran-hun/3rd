@@ -3,6 +3,7 @@ package com.example.demo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -35,12 +36,14 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public String deleteUser(Long id){
-        if(userRepository.existsById(id)){
-            userRepository.deleteById(id);
-            return "삭제 완료";
-        } else {
-            return "해당 id의 사용자가 없습니다.";
+    public boolean deleteUser(Long id){
+        Optional<User> user = userRepository.findById(id);
+
+        if(user.isPresent()){
+            userRepository.delete(user.get());
+            return true;
         }
+
+        return false;
     }
 }

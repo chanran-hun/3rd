@@ -1,4 +1,5 @@
 package com.example.demo;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -49,9 +50,16 @@ public class HelloController {
     }
 
     @DeleteMapping("/user/{id}")
-    public String deleteUser(@PathVariable Long id){
-        return userService.deleteUser(id);
+    public ResponseEntity<?> deleteUser(@PathVariable Long id){
+        boolean deleted = userService.deleteUser(id);
+
+        if(deleted){
+            return ResponseEntity.ok("삭제완료");
+        } else {
+            return ResponseEntity.status(404).body("사용자 없음");
+        }
     }
+
     @GetMapping("/users")
     public List<User> users() {
         return userService.getUsers();
