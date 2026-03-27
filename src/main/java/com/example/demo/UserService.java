@@ -34,4 +34,13 @@ public class UserService {
 
         return userRepository.save(user);
     }
+
+    public String deleteUser(Long id){
+        if(userRepository.existsById(id)){
+            userRepository.deleteById(id);
+            return "삭제 완료";
+        } else {
+            return "해당 id의 사용자가 없습니다.";
+        }
+    }
 }

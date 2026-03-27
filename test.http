@@ -1,15 +1,19 @@
 #POST http://localhost:8080/user
 #Content-Type: application/json
-
+#
 #{
 #  "name": "학습자",
 #  "age": 25
 #}
 
-PUT http://localhost:8080/user?id=1
-Content-Type: application/json
+DELETE http://localhost:8080/user/1
 
-{
-  "name": "수정된학습자",
-  "age": 26
-}
+#PUT http://localhost:8080/user?id=1
+#Content-Type: application/json
+
+#{
+#  "name": "수정된학습자",
+#  "age": 26
+#}
+
+
