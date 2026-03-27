@@ -25,4 +25,13 @@ public class UserService {
     public User getUser(Long id) {
         return userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 사용자입니다."));
     }
+
+    public User updateUser(Long id, User updateduser){
+        User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 사용자입니다."));
+
+        user.setName(updateduser.getName());
+        user.setAge(updateduser.getAge());
+
+        return userRepository.save(user);
+    }
 }

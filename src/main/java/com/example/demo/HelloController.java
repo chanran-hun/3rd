@@ -38,6 +38,11 @@ public class HelloController {
         return userService.saveUser(user);
     }
 
+    @PutMapping("/user")
+    public User updateUser(@RequestParam Long id, @RequestBody User user) {
+        return userService.updateUser(id,user);
+    }
+
     @GetMapping("/user")
     public User getUser(@RequestParam Long id) {
         return userService.getUser(id);
