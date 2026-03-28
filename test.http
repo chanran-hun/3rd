@@ -9,7 +9,7 @@ Content-Type: application/json
 
 ###
 
-### 4. 수정
+### 2. 수정
 PUT http://localhost:8080/user?id=1
 Content-Type: application/json
 
@@ -20,5 +20,5 @@ Content-Type: application/json
 
 ###
 
-### 5. 삭제
+### 3. 삭제
 DELETE http://localhost:8080/user/1
