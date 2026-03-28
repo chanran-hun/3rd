@@ -46,4 +46,12 @@ public class UserService {
 
         return false;
     }
+
+    public void createUser(UserRequestDto dto){
+        User user = new User();
+        user.setName(dto.getName());
+        user.setAge(dto.getAge());
+
+        userRepository.save(user);
+    }
 }

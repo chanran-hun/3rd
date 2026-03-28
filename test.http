@@ -1,19 +1,24 @@
-#POST http://localhost:8080/user
-#Content-Type: application/json
-#
-#{
-#  "name": "학습자",
-#  "age": 25
-#}
+### 1. 사용자 생성
+POST http://localhost:8080/user
+Content-Type: application/json
 
+{
+  "name": "피카츄",
+  "age" : 13
+}
 
+###
+
+### 4. 수정
+PUT http://localhost:8080/user?id=1
+Content-Type: application/json
+
+{
+  "name" : "라이츄",
+  "age" : 25
+}
+
+###
+
+### 5. 삭제
 DELETE http://localhost:8080/user/1
-
-#PUT http://localhost:8080/user?id=1
-#Content-Type: application/json
-
-#{
-#  "name": "수정된학습자",
-#  "age": 26
-#}
-

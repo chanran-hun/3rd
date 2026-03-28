@@ -3,14 +3,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
-public class HelloController {
+public class UserController {
 
     private final UserService userService;
 
-    public HelloController(UserService userService) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
@@ -35,8 +34,8 @@ public class HelloController {
     }
 
     @PostMapping("/user")
-    public String user(@RequestBody User user) {
-        return userService.saveUser(user);
+    public void CreateUser(@RequestBody UserRequestDto dto) {
+        userService.createUser(dto);
     }
 
     @PutMapping("/user")
