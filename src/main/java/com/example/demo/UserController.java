@@ -33,7 +33,7 @@ public class UserController {
         return a + b;
     }
 
-    @PostMapping("/user")
+    @PostMapping("/users")
     public void CreateUser(@RequestBody UserRequestDto dto) {
         userService.createUser(dto);
     }
